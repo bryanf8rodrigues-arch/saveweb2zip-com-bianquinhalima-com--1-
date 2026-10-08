@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Duda Tips · Fogo 🔥</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: radial-gradient(ellipse at 30% 20%, #2a0a2e 0%, #1a0508 60%, #0d0100 100%);
+      color: #fff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Partículas de fogo no fundo */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 10% 80%, rgba(255, 60, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 30%, rgba(180, 0, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 150, 0, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: fire-breath 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes fire-breath {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .bio-card {
+      max-width: 420px;
+      width: 100%;
+      background: rgba(10, 2, 8, 0.8);
+      backdrop-filter: blur(24px) saturate(250%);
+      -webkit-backdrop-filter: blur(24px) saturate(250%);
+      border-radius: 56px 56px 48px 48px;
+      padding: 36px 24px 30px;
+      box-shadow: 
+        0 40px 80px -10px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 80, 0, 0.15),
+        0 0 60px rgba(255, 50, 0, 0.15);
+      border: 1px solid rgba(255, 100, 0, 0.15);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: card-pulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes card-pulse {
+      0% { box-shadow: 0 0 40px rgba(255, 60, 0, 0.1), 0 0 80px rgba(180, 0, 255, 0.05); }
+      100% { box-shadow: 0 0 70px rgba(255, 60, 0, 0.25), 0 0 120px rgba(180, 0, 255, 0.1); }
+    }
+
+    /* BADGE QUENTE */
+    .hot-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff2a00, #ff5e00, #ff2a00);
+      background-size: 200% 100%;
+      padding: 5px 20px;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+      box-shadow: 0 0 30px rgba(255, 50, 0, 0.4);
+      animation: hot-glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes hot-glow {
+      0% { box-shadow: 0 0 20px rgba(255, 50, 0, 0.3); background-position: 0% 50%; }
+      100% { box-shadow: 0 0 50px rgba(255, 80, 0, 0.7); background-position: 100% 50%; }
+    }
+
+    /* AVATAR */
+    .avatar {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff3c00, #ff7b00, #b400ff);
+      padding: 4px;
+      box-shadow: 0 0 60px rgba(255, 60, 0, 0.5), 0 0 100px rgba(180, 0, 255, 0.2);
+      animation: avatar-fire 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes avatar-fire {
+      0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 40px rgba(255, 60, 0, 0.4); }
+      100% { transform: scale(1.05) rotate(3deg); box-shadow: 0 0 80px rgba(255, 100, 0, 0.8); }
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #1a0508;
+      border: 2px solid rgba(0, 0, 0, 0.4);
+    }
+
+    .avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* NOME */
+    .name {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ff4d00, #ff7b00, #ff2a6a, #b400ff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: fire-text 3s ease-in-out infinite alternate;
+      text-shadow: 0 0 60px rgba(255, 60, 0, 0.2);
+    }
+
+    @keyframes fire-text {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .subhead {
+      font-size: 0.9rem;
+      color: #ffaa88;
+      background: rgba(255, 60, 0, 0.08);
+      display: inline-block;
+      padding: 6px 22px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 80, 0, 0.15);
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+      font-weight: 400;
+      animation: subhead-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes subhead-pulse {
+      0% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+      100% { opacity: 0.8; transform: scale(1); }
+    }
+
+    .subhead i {
+      margin-right: 8px;
+      color: #ff4d00;
+      animation: heart-beat 1s ease-in-out infinite;
+    }
+
+    @keyframes heart-beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.4); color: #ff0066; }
+    }
+
+    /* BOTÕES */
+    .link-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0 28px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 18px 22px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: all 0.15s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .link-btn i {
+      font-size: 1.6rem;
+      transition: transform 0.2s;
+    }
+
+    .btn-label {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .btn-label span + span {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* BOTÃO 1 - LARANJA/VERMELHO (TREME) */
+    .btn-1 {
+      background: linear-gradient(135deg, #ff2a00, #ff5e00);
+      animation: btn-shake 2s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(255, 50, 0, 0.4);
+    }
+
+    .btn-1:hover {
+      animation: btn-shake-intense 0.4s ease-in-out infinite;
+      transform: scale(1.04);
+      box-shadow: 0 0 60px rgba(255, 80, 0, 0.7);
+    }
+
+    @keyframes btn-shake {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(1.5deg) scale(1.02); }
+      75% { transform: rotate(-1.5deg) scale(1.02); }
+    }
+
+    @keyframes btn-shake-intense {
+      0%, 100% { transform: rotate(-2deg) scale(1.04); }
+      50% { transform: rotate(2deg) scale(1.08); }
+    }
+
+    /* BOTÃO 2 - ROXO (BALANÇA) */
+    .btn-2 {
+      background: linear-gradient(135deg, #7a00ff, #b400ff);
+      animation: btn-sway 2.5s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(180, 0, 255, 0.3);
+    }
+
+    .btn-2:hover {
+      animation: btn-sway-intense 0.6s ease-in-out infinite;
+      transform: scale(1.04);
+      box-shadow: 0 0 60px rgba(180, 0, 255, 0.6);
+    }
+
+    @keyframes btn-sway {
+      0%, 100% { transform: rotate(-1deg) scale(1); }
+      50% { transform: rotate(1deg) scale(1.02); }
+    }
+
+    @keyframes btn-sway-intense {
+      0%, 100% { transform: rotate(-3deg) scale(1.04); }
+      50% { transform: rotate(3deg) scale(1.08); }
+    }
+
+    /* BOTÃO 3 - VERMELHO (PULSA) */
+    .btn-3 {
+      background: linear-gradient(135deg, #cc0033, #ff0044);
+      animation: btn-pulse 1.8s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(255, 0, 68, 0.3);
+    }
+
+    .btn-3:hover {
+      animation: btn-pulse-intense 0.8s ease-in-out infinite;
+      transform: scale(1.04);
+      box-shadow: 0 0 60px rgba(255, 0, 68, 0.6);
+    }
+
+    @keyframes btn-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 68, 0.3); }
+      50% { transform: scale(1.03); box-shadow: 0 0 50px rgba(255, 0, 68, 0.6); }
+    }
+
+    @keyframes btn-pulse-intense {
+      0%, 100% { transform: scale(1.04); box-shadow: 0 0 40px rgba(255, 0, 68, 0.4); }
+      50% { transform: scale(1.1); box-shadow: 0 0 80px rgba(255, 0, 68, 0.8); }
+    }
+
+    .link-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 60px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* SELO ONLINE */
+    .online-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 60, 0, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 8px 24px;
+      border-radius: 80px;
+      font-size: 0.85rem;
+      color: #ffaa88;
+      border: 1px solid rgba(255, 80, 0, 0.1);
+      margin-top: 6px;
+      animation: online-flicker 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes online-flicker {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .online-badge i {
+      color: #ff4d00;
+      font-size: 0.7rem;
+      animation: pulse-dot 1.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.6); }
+    }
+
+    .online-badge .fa-bolt {
+      color: #ff7b00;
+      animation: bolt-zap 0.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes bolt-zap {
+      0% { opacity: 0.5; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* RODAPÉ */
+    .footer {
+      margin-top: 30px;
+      font-size: 0.65rem;
+      color: #7a4a4a;
+      letter-spacing: 0.5px;
+      border-top: 1px solid rgba(255, 60, 0, 0.08);
+      padding-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 14px;
+    }
+
+    .footer span {
+      opacity: 0.7;
+    }
+
+    .footer i {
+      margin: 0 4px;
+      color: #ff4d00;
+      animation: heart-beat 1.5s ease-in-out infinite;
+    }
+
+    @media (max-width: 460px) {
+      .bio-card {
+        padding: 28px 16px 24px;
+        border-radius: 44px;
+      }
+      .name {
+        font-size: 2rem;
+      }
+      .link-btn {
+        padding: 15px 16px;
+        font-size: 0.95rem;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bio-card">
+  <!-- BADGE -->
+  <div class="hot-badge">
+    <i class="fas fa-fire" style="margin-right: 6px;"></i> +18 · CONTEÚDO EXPLÍCITO
+  </div>
+
+  <!-- AVATAR -->
+  <div class="avatar">
+    <div class="avatar-inner">
+      <img src="images/foto01.png" alt="Duda Tips">
+    </div>
+  </div>
+
+  <!-- NOME -->
+  <h1 class="name">Duda Tips</h1>
+  <div class="subhead">
+    <i class="fas fa-heart"></i> sua putinha favorita · pronta pra você
+  </div>
+
+  <!-- BOTÕES - TODOS COM O MESMO LINK -->
+  <div class="link-grid">
+    <a href="https://paylume.fans/l/c5808179?utm_source=instagram&amp;utm_campaign=bio&amp;utm_medium=organic&amp;utm_content=profile&amp;utm_term=stories&amp;shk=m4ajfajm" class="link-btn btn-1" target="_blank">
+      <i class="fab fa-telegram-plane"></i>
+      <span>📲 MEU TELEGRAM · VEM</span>
+      <i class="fas fa-chevron-right" style="font-size: 0.9rem; opacity: 0.8; margin-left: auto;"></i>
+    </a>
+
+    <a href="https://ngkpay.com/ck/acesso-vip-joana-871e14" class="link-btn btn-2" target="_blank">
+      <i class="fas fa-lock"></i>
+      <span>🍊 MEU PRIVACY</span>
+      <i class="fas fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6; margin-left: auto;"></i>
+    </a>
+
+    <a href="https://paylume.fans/l/c5808179?utm_source=instagram&amp;utm_campaign=bio&amp;utm_medium=organic&amp;utm_content=profile&amp;utm_term=stories&amp;shk=m4ajfajm" class="link-btn btn-3" target="_blank">
+      <i class="fab fa-telegram-plane"></i>
+      <span class="btn-label">
+        <span>🇺🇸 MY TELEGRAM IS COMING</span>
+        <span>Mi telegrama está en camino.</span>
+      </span>
+      <i class="fas fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6; margin-left: auto;"></i>
+    </a>
+  </div>
+
+  <!-- ONLINE -->
+  <div class="online-badge">
+    <i class="fas fa-circle"></i>
+    <span>537 pessoas online agora</span>
+    <span style="opacity:0.3; margin: 0 4px;">•</span>
+    <i class="fas fa-bolt"></i>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="footer">
+    <span>© 2026</span>
+    <span>·</span>
+    <span><i class="fas fa-crown"></i> Duda Tips</span>
+    <span>·</span>
+    <span>+18</span>
+    <span style="opacity:0.3;">❤️</span>
+  </div>
+</div>
+
+
+</body></html>
